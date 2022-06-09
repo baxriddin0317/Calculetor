@@ -17,7 +17,49 @@ function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija})
         setNatija(false);
         setClear(true);
     }
-    
+
+    const Ekub = (son1, son2) => {
+        for(let i=1; i<=Math.abs(son1) && i<=Math.abs(son2); i++){
+            if(Math.abs(son1)%i === 0 && Math.abs(son2)%i === 0){
+                var g = i;
+            }
+        }
+        return g;
+    }
+
+    const funAdd = () => {
+        let son1 = surat1*maxraj2 + surat2*maxraj1;
+        let son2 = maxraj2*maxraj1;
+        let ekub = Ekub(son1, son2);
+        setNatijaS(son1/ekub);
+        setNatijaM(son2/ekub);
+    }
+
+    const funSplit = () => {
+        let son1 = surat1*maxraj2 - surat2*maxraj1;
+        let son2 = maxraj1*maxraj2;
+        let ekub = Ekub(son1, son2);
+        setNatijaS(son1 === 0 ? son1 : son1/ekub);
+        setNatijaM(son1 === 0 ? son2 : son2/ekub);
+    }
+
+    const funMultiply = () => {
+        let son1 = surat1*surat2;
+        let son2 = maxraj2*maxraj1;
+        let ekub = Ekub(son1, son2);
+        setNatijaS(son1/ekub);
+        setNatijaM(son2/ekub);
+    }
+
+    const funDivision = () => {
+        let son1 = surat1*maxraj2;
+        let son2 = maxraj1*surat2;
+        let ekub = Ekub(son1, son2);
+        console.log(ekub);
+        setNatijaS(son1/ekub);
+        setNatijaM(son2/ekub);
+    }
+
     const funCalculat = () => {  
         if(val === "+"){
             funAdd();
@@ -32,33 +74,13 @@ function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija})
         setNatija(true);
     }
 
-    const funAdd = () => {
-        setNatijaS(surat1*maxraj2 + surat2*maxraj1);
-        setNatijaM(maxraj1*maxraj2);
-    }
-
-    const funSplit = () => {
-        setNatijaS(surat1*maxraj2 - surat2*maxraj1);
-        setNatijaM(maxraj1*maxraj2);
-    }
-
-    const funMultiply = () => {
-        setNatijaS(surat1*surat2);
-        setNatijaM(maxraj1*maxraj2);
-    }
-
-    const funDivision = () => {
-        setNatijaS(surat1*maxraj2);
-        setNatijaM(maxraj1*surat2);
-    }
-
   return (
     <div className='w-full md:w-3/5 bg-white border border-[#E5E7EB] rounded-lg px-4 py-5 mb-5 '>
         <div className='flex items-center justify-between mb-4'>
             <div className='w-1/4 md:w-[87px] flex flex-col'>
-                <InputTeg setValue={setSurat1} clear={clear} setClear={setClear} />
+                <InputTeg setValue={setSurat1} clear={clear} setClear={setClear} m={false} />
                 <span className='mb-4 w-full md:w-[87px] bg-[#6B7280] flex h-px'></span>
-                <InputTeg setValue={setMaxraj1} clear={clear} setClear={setClear} />
+                <InputTeg setValue={setMaxraj1} clear={clear} setClear={setClear} m={true} />
             </div>
             <div className='mb-4'>
                 <select onChange={handleSelect} className='border border-[#E5E7EB] bg-[#fff] rounded-md p-2'>
@@ -69,9 +91,9 @@ function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija})
                 </select>
             </div>
             <div className='w-1/4 md:w-[87px] flex flex-col'>
-                <InputTeg setValue={setSurat2} clear={clear}  setClear={setClear} />
+                <InputTeg setValue={setSurat2} clear={clear}  setClear={setClear} m={false} />
                 <span className='mb-4 w-full md:w-[87px] bg-[#6B7280] flex h-px'></span>
-                <InputTeg setValue={setMaxraj2} clear={clear}  setClear={setClear} />    
+                <InputTeg setValue={setMaxraj2} clear={clear}  setClear={setClear} m={true} />    
             </div>
             <div className='mb-4'>
                 =

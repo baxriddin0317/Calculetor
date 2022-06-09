@@ -13,15 +13,14 @@ function Result({natijaS, natijaM, natija}) {
             <div className='flex'>
                 {
                     natija ? <div className='flex items-center'>
-                        {natijaS/natijaM > 1 && <p className='text-xl font-bold text-[#6B7280]' >{Math.floor(natijaS/natijaM)}</p>}
-                        <div>
-                            <p className='text-xl font-bold text-[#6B7280]' >{natijaS%natijaM}</p>
+                        {(Math.abs(natijaS/natijaM) >= 1 || natijaS/natijaM === 0)   && <p className='text-xl font-bold text-[#6B7280]' >{natijaS/natijaM < 0 ? -Math.floor(Math.abs(natijaS/natijaM)) : Math.floor(Math.abs(natijaS/natijaM)) }</p>}
+                        {natijaS%natijaM !== 0 ?  <div>
+                            <p className='text-xl font-bold text-[#6B7280]' >{Math.abs(natijaS%natijaM)}</p>
                             <span className='bg-[#333] block w-full h-px'></span>
                             <p className='text-xl font-bold text-[#6B7280]'>{natijaM}</p>
-                        </div>
+                        </div> : null}
                 </div> : <p className='text-xl font-bold text-[#6B7280]'>?</p>
                 }
-
             </div>
         </div>
         <span className='my-4 w-full bg-[#6B7280] flex h-px'></span>

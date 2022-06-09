@@ -1,17 +1,25 @@
 import React, { useEffect, useRef, useState } from 'react'
 
-function InputTeg({setValue, clear, setClear}) {
+function InputTeg({setValue, clear, setClear, m}) {
     const [war, setWar] = useState(false);
     const refInput = useRef();
 
     const handleChange = (e) => {
-        if(!isNaN(e.target.value)) {
+        if(!isNaN(e.target.value) || e.target.value === "-") {
             setWar(false);
             setValue(e.target.value);
         }else{
             refInput.current.value ="";
             setWar(true);
         }
+        
+        if(m){
+            if(e.target.value === '0'){
+                setWar(true);
+                e.target.value = '';
+            }
+        }
+
         setClear(false);
     }
 
