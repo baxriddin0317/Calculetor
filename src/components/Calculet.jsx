@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import InputTeg from './InputTeg'
 
-function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija, setEkub}) {
+function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija}) {
     const [val, setVal ] = useState("+");
     const [surat1, setSurat1] = useState();
     const [surat2, setSurat2] = useState();
@@ -53,41 +53,40 @@ function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija, 
     }
 
   return (
-    <div className='w-[100%] md:w-[60%] bg-[#fff] border border-[#E5E7EB] rounded-[8px] px-[15px] py-[18px] mb-[20px] '>
-        <div className='flex items-center justify-between'>
-            <div className='w-[25%] md:w-[87px] flex flex-col'>
+    <div className='w-full md:w-3/5 bg-white border border-[#E5E7EB] rounded-lg px-4 py-5 mb-5 '>
+        <div className='flex items-center justify-between mb-4'>
+            <div className='w-1/4 md:w-[87px] flex flex-col'>
                 <InputTeg setValue={setSurat1} clear={clear} setClear={setClear} />
-                <span className='mb-[16px] w-[100%] md:w-[87px] bg-[#6B7280] flex h-[1px]'></span>
+                <span className='mb-4 w-full md:w-[87px] bg-[#6B7280] flex h-[1px]'></span>
                 <InputTeg setValue={setMaxraj1} clear={clear} setClear={setClear} />
             </div>
-            <div className='mb-[16px]'>
-                <select onChange={handleSelect} className='border border-[#E5E7EB] bg-[#fff] rounded-[6px] p-[9px]'>
+            <div className='mb-4'>
+                <select onChange={handleSelect} className='border border-[#E5E7EB] bg-[#fff] rounded-md p-2'>
                     <option value="+">+</option>
                     <option value="-">-</option>
                     <option value="*">*</option>
                     <option value="/">/</option>
-                    <option value="of">of</option>
                 </select>
             </div>
-            <div className='w-[25%] md:w-[87px] flex flex-col'>
+            <div className='w-1/4 md:w-[87px] flex flex-col'>
                 <InputTeg setValue={setSurat2} clear={clear}  setClear={setClear} />
-                <span className='mb-[16px] w-[100%] md:w-[87px] bg-[#6B7280] flex h-[1px]'></span>
+                <span className='mb-4 w-full md:w-[87px] bg-[#6B7280] flex h-[1px]'></span>
                 <InputTeg setValue={setMaxraj2} clear={clear}  setClear={setClear} />    
             </div>
-            <div className='mb-[16px]'>
+            <div className='mb-4'>
                 =
             </div>
-            {natija ? <div className='max-w-[25%] md:w-[87px] flex flex-col'>
+            {natija ? <div className='w-1/4 md:w-[87px] flex flex-col'>
                 <p className="border mb-[16px] border-[#E5E7EB] bg-[#fff] rounded-[6px] p-[9px]">{natijaS}</p>
                 <span className='mb-[16px] w-[100%] md:w-[87px] bg-[#6B7280] flex h-[1px]'></span>
                 <p className="border mb-[16px] border-[#E5E7EB] bg-[#fff] rounded-[6px] p-[9px]">{natijaM}</p>
-            </div> : <div className='max-w-[25%] md:w-[87px] flex flex-col'>
-                    <p className='mb-[16px] text-[20px] font-bold text-[#6B7280]'>?</p>
+            </div> : <div className='w-1/4 md:w-[87px] flex flex-col'>
+                    <p className='mb-4 text-xl font-bold text-[#6B7280]'>?</p>
                 </div> }
         </div>
-        <div className='flex w-[100%] justify-between items-center'>
-            <button className='rounded-[6px] bg-[#EEF2FF] w-[45%] text-[#4F46E5] p-[9px]' onClick={funClear} >Clear</button>
-            <button className='rounded-[6px] bg-[#4F46E5] w-[45%] text-[#fff] p-[9px]' onClick={funCalculat}>Calculate</button>
+        <div className='flex w-full justify-between items-center'>
+            <button className='rounded-md bg-[#EEF2FF] w-2/5 text-[#4F46E5] p-2' onClick={funClear} >Clear</button>
+            <button className='rounded-md bg-[#4F46E5] w-2/5 text-[#fff] p-2' onClick={funCalculat}>Calculate</button>
         </div>
     </div>
   )

@@ -10,7 +10,7 @@ function App() {
 
   return (
     <div className="bg-[#F9FAFB]">
-      <div className="max-w-[800px] h-[100vh] mx-auto px-[36px] py-[40px]">
+      <div className="max-w-[800px] h-screen mx-auto px-9 py-10">
         <div className='md:flex md:justify-between'>
           <Calculet 
             setNatijaM={setNatijaM} 

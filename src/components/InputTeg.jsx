@@ -27,7 +27,7 @@ function InputTeg({setValue, clear, setClear}) {
   return (
     <input  
         ref={refInput}
-        className={war ? 'outline-none border mb-[16px] border-red-600 bg-[#fff] rounded-[6px] p-[9px]' : 'outline-none border mb-[16px] border-[#E5E7EB] bg-[#fff] rounded-[6px] p-[9px]'} 
+        className={war ? 'outline-none border mb-4 border-red-600 bg-white rounded-md p-2' : 'outline-none border mb-4 border-[#E5E7EB] bg-white rounded-md p-2'} 
         type="text"
         onChange={handleChange}
     />
