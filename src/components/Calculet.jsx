@@ -57,7 +57,7 @@ function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija})
         <div className='flex items-center justify-between mb-4'>
             <div className='w-1/4 md:w-[87px] flex flex-col'>
                 <InputTeg setValue={setSurat1} clear={clear} setClear={setClear} />
-                <span className='mb-4 w-full md:w-[87px] bg-[#6B7280] flex h-[1px]'></span>
+                <span className='mb-4 w-full md:w-[87px] bg-[#6B7280] flex h-px'></span>
                 <InputTeg setValue={setMaxraj1} clear={clear} setClear={setClear} />
             </div>
             <div className='mb-4'>
@@ -70,7 +70,7 @@ function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija})
             </div>
             <div className='w-1/4 md:w-[87px] flex flex-col'>
                 <InputTeg setValue={setSurat2} clear={clear}  setClear={setClear} />
-                <span className='mb-4 w-full md:w-[87px] bg-[#6B7280] flex h-[1px]'></span>
+                <span className='mb-4 w-full md:w-[87px] bg-[#6B7280] flex h-px'></span>
                 <InputTeg setValue={setMaxraj2} clear={clear}  setClear={setClear} />    
             </div>
             <div className='mb-4'>

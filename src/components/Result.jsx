@@ -16,7 +16,7 @@ function Result({natijaS, natijaM, natija}) {
                         {natijaS/natijaM > 1 && <p className='text-xl font-bold text-[#6B7280]' >{Math.floor(natijaS/natijaM)}</p>}
                         <div>
                             <p className='text-xl font-bold text-[#6B7280]' >{natijaS%natijaM}</p>
-                            <span className='bg-[#333] block w-full h-[1px]'></span>
+                            <span className='bg-[#333] block w-full h-px'></span>
                             <p className='text-xl font-bold text-[#6B7280]'>{natijaM}</p>
                         </div>
                 </div> : <p className='text-xl font-bold text-[#6B7280]'>?</p>
@@ -24,7 +24,7 @@ function Result({natijaS, natijaM, natija}) {
 
             </div>
         </div>
-        <span className='my-4 w-full bg-[#6B7280] flex h-[1px]'></span>
+        <span className='my-4 w-full bg-[#6B7280] flex h-px'></span>
         <div className='p-4'>
             <div className='flex justify-between'>
                 <h2 className='text-[#333333] font-semibold text-xl'>Result in decimals: </h2>
