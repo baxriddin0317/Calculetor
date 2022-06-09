@@ -12,10 +12,13 @@ function Result({natijaS, natijaM, natija}) {
             </div>
             <div className='flex'>
                 {
-                    natija ? <div>
-                    <p className='text-[20px] font-bold text-[#6B7280]' >{natijaS}</p>
-                    <span className='bg-[#333] block w-full h-[1px]'></span>
-                    <p className='text-[20px] font-bold text-[#6B7280]'>{natijaM}</p>
+                    natija ? <div className='flex items-center'>
+                        {natijaS/natijaM > 1 && <p className='text-[20px] font-bold text-[#6B7280]' >{Math.floor(natijaS/natijaM)}</p>}
+                        <div>
+                            <p className='text-[20px] font-bold text-[#6B7280]' >{natijaS%natijaM}</p>
+                            <span className='bg-[#333] block w-full h-[1px]'></span>
+                            <p className='text-[20px] font-bold text-[#6B7280]'>{natijaM}</p>
+                        </div>
                 </div> : <p className='text-[20px] font-bold text-[#6B7280]'>?</p>
                 }
 

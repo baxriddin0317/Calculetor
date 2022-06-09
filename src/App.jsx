@@ -15,7 +15,7 @@ function App() {
           <Calculet 
             setNatijaM={setNatijaM} 
             setNatijaS={setNatijaS} 
-            setNatija={setNatija} 
+            setNatija={setNatija}
             natija={natija} 
             natijaM={natijaM} 
             natijaS={natijaS} 

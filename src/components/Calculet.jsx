@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import InputTeg from './InputTeg'
 
-function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija}) {
+function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija, setEkub}) {
     const [val, setVal ] = useState("+");
     const [surat1, setSurat1] = useState();
     const [surat2, setSurat2] = useState();
@@ -17,8 +17,8 @@ function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija})
         setNatija(false);
         setClear(true);
     }
-
-    const funCalculat = () => {
+    
+    const funCalculat = () => {  
         if(val === "+"){
             funAdd();
         }else if(val === "-"){
