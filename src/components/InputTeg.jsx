@@ -16,7 +16,6 @@ function InputTeg({setValue, clear, setClear, m}) {
         if(m){
             if(e.target.value === '0'){
                 setWar(true);
-                e.target.value = '';
             }
         }
 

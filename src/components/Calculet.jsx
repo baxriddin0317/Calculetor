@@ -1,12 +1,7 @@
 import React, { useState } from 'react'
 import InputTeg from './InputTeg'
 
-function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija}) {
-    const [val, setVal ] = useState("+");
-    const [surat1, setSurat1] = useState();
-    const [surat2, setSurat2] = useState();
-    const [maxraj1, setMaxraj1] = useState();
-    const [maxraj2, setMaxraj2] = useState();
+function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija, setVal, val, setSurat1, surat1, setSurat2, surat2, setMaxraj1, maxraj1, setMaxraj2, maxraj2}) {
     const [clear, setClear] = useState(false);
 
     const handleSelect = (e) => {
@@ -98,13 +93,20 @@ function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija})
             <div className='mb-4'>
                 =
             </div>
-            {natija ? <div className='w-1/4 md:w-[87px] flex flex-col'>
-                <p className="border mb-[16px] border-[#E5E7EB] bg-[#fff] rounded-[6px] p-[9px]">{natijaS}</p>
-                <span className='mb-[16px] w-[100%] md:w-[87px] bg-[#6B7280] flex h-[1px]'></span>
-                <p className="border mb-[16px] border-[#E5E7EB] bg-[#fff] rounded-[6px] p-[9px]">{natijaM}</p>
-            </div> : <div className='w-1/4 md:w-[87px] flex flex-col'>
+            {
+                natija ? <div className='w-1/4 md:w-[87px] flex flex-col'>
+                    {natijaM !== 1 ? <div>
+                        <p className="border mb-[16px] border-[#E5E7EB] bg-[#fff] rounded-[6px] p-[9px]">{natijaS}</p>
+                        <span className='mb-[16px] w-[100%] md:w-[87px] bg-[#6B7280] flex h-[1px]'></span>
+                        <p className="border mb-[16px] border-[#E5E7EB] bg-[#fff] rounded-[6px] p-[9px]">{natijaM}</p>
+                    </div> 
+                    : <div>
+                        <p className="border mb-[16px] border-[#E5E7EB] bg-[#fff] rounded-[6px] p-[9px]">{natijaS}</p>
+                    </div>}
+                </div> : <div className='w-1/4 md:w-[87px] flex flex-col'>
                     <p className='mb-4 text-xl font-bold text-[#6B7280]'>?</p>
-                </div> }
+                </div> 
+            }
         </div>
         <div className='flex w-full justify-between items-center'>
             <button className='rounded-md bg-[#EEF2FF] w-2/5 text-[#4F46E5] p-2' onClick={funClear} >Clear</button>
