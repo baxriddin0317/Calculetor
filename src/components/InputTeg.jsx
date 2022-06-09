@@ -16,11 +16,12 @@ function InputTeg({setValue, clear, setClear}) {
     }
 
     useEffect(() => {
-        return () => {
+        const cleaFun = () => {
             if(!clear){
                 refInput.current.value = "";
             }  
-        };
+        }
+    return cleaFun;
     }, [clear])
 
   return (
