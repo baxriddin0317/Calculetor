@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
 import InputTeg from './InputTeg'
 
-function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija, setVal, val, setSurat1, surat1, setSurat2, surat2, setMaxraj1, maxraj1, setMaxraj2, maxraj2}) {
+function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija, setVal, val, setSurat1, setSurat2, setMaxraj1, setMaxraj2}) {
     const [clear, setClear] = useState(false);
+    const [ s1, setS1 ] = useState()
+    const [ s2, setS2 ] = useState()
+    const [ m1, setM1 ] = useState()
+    const [ m2, setM2 ] = useState()
 
     const handleSelect = (e) => {
+        setNatija(false);
         setVal(e.target.value);
     }
 
@@ -23,32 +28,32 @@ function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija, 
     }
 
     const funAdd = () => {
-        let son1 = surat1*maxraj2 + surat2*maxraj1;
-        let son2 = maxraj2*maxraj1;
+        let son1 = s1*m2 + s2*m1;
+        let son2 = m2*m1;
         let ekub = Ekub(son1, son2);
         setNatijaS(son1/ekub);
         setNatijaM(son2/ekub);
     }
 
     const funSplit = () => {
-        let son1 = surat1*maxraj2 - surat2*maxraj1;
-        let son2 = maxraj1*maxraj2;
+        let son1 = s1*m2 - s2*m1;
+        let son2 = m1*m2;
         let ekub = Ekub(son1, son2);
         setNatijaS(son1 === 0 ? son1 : son1/ekub);
         setNatijaM(son1 === 0 ? son2 : son2/ekub);
     }
 
     const funMultiply = () => {
-        let son1 = surat1*surat2;
-        let son2 = maxraj2*maxraj1;
+        let son1 = s1*s2;
+        let son2 = m2*m1;
         let ekub = Ekub(son1, son2);
         setNatijaS(son1/ekub);
         setNatijaM(son2/ekub);
     }
 
     const funDivision = () => {
-        let son1 = surat1*maxraj2;
-        let son2 = maxraj1*surat2;
+        let son1 = s1*m2;
+        let son2 = m1*s2;
         let ekub = Ekub(son1, son2);
         console.log(ekub);
         setNatijaS(son1/ekub);
@@ -56,6 +61,10 @@ function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija, 
     }
 
     const funCalculat = () => {  
+        setSurat1(s1)
+        setSurat2(s2)
+        setMaxraj1(m1)
+        setMaxraj2(m2)
         if(val === "+"){
             funAdd();
         }else if(val === "-"){
@@ -73,9 +82,9 @@ function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija, 
     <div className='w-full md:w-3/5 bg-white border border-[#E5E7EB] rounded-lg px-4 py-5 mb-5 '>
         <div className='flex items-center justify-between mb-4'>
             <div className='w-1/4 md:w-[87px] flex flex-col'>
-                <InputTeg setValue={setSurat1} clear={clear} setClear={setClear} m={false} />
+                <InputTeg setValue={setS1} clear={clear} setClear={setClear} m={false} />
                 <span className='mb-4 w-full md:w-[87px] bg-[#6B7280] flex h-px'></span>
-                <InputTeg setValue={setMaxraj1} clear={clear} setClear={setClear} m={true} />
+                <InputTeg setValue={setM1} clear={clear} setClear={setClear} m={true} />
             </div>
             <div className='mb-4'>
                 <select onChange={handleSelect} className='border border-[#E5E7EB] bg-[#fff] rounded-md p-2'>
@@ -86,9 +95,9 @@ function Calculet({setNatijaM, setNatijaS, natijaM, natijaS, natija, setNatija, 
                 </select>
             </div>
             <div className='w-1/4 md:w-[87px] flex flex-col'>
-                <InputTeg setValue={setSurat2} clear={clear}  setClear={setClear} m={false} />
+                <InputTeg setValue={setS2} clear={clear}  setClear={setClear} m={false} />
                 <span className='mb-4 w-full md:w-[87px] bg-[#6B7280] flex h-px'></span>
-                <InputTeg setValue={setMaxraj2} clear={clear}  setClear={setClear} m={true} />    
+                <InputTeg setValue={setM2} clear={clear}  setClear={setClear} m={true} />    
             </div>
             <div className='mb-4'>
                 =

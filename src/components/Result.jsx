@@ -34,7 +34,7 @@ function Result({natijaS, natijaM, natija, val, surat1, surat2, maxraj1, maxraj2
                         <div className='flex items-center'>
                             {(Math.abs(natijaS/natijaM) >= 1 || natijaS/natijaM === 0)   && <p className='text-xl font-bold text-[#6B7280]' >{natijaS/natijaM < 0 ? -Math.floor(Math.abs(natijaS/natijaM)) : Math.floor(Math.abs(natijaS/natijaM)) }</p>}
                             {natijaS%natijaM !== 0 ?  <div>
-                            <p className='text-xl font-bold text-[#6B7280]' >{Math.abs(natijaS%natijaM)}</p>
+                            <p className='text-xl font-bold text-[#6B7280]' >{natijaS%natijaM < 0 && !(Math.abs(natijaS/natijaM) >= 1)  ? -Math.floor(Math.abs(natijaS%natijaM)) : Math.floor(Math.abs(natijaS%natijaM)) }</p>
                             <span className='bg-[#333] block w-full h-px'></span>
                             <p className='text-xl font-bold text-[#6B7280]'>{natijaM}</p>
                         </div> : null}
